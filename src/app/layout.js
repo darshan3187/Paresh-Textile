@@ -1,5 +1,6 @@
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -23,7 +24,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable} ${cormorant.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
