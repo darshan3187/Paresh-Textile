@@ -1,20 +1,56 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #F4F1EA;
+  --foreground: #1A1209;
+  --border: #DDD4C6;
+  --input: #FFFFFF;
+  --primary: #1A1209;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FBF8F4;
+  --secondary-foreground: #1A1209;
+  --muted: #E2D8CA;
+  --muted-foreground: #5C5248;
+  --card: #FFFFFF;
+  --gold: #A6792B;
+  --whatsapp: #25D366;
+  --navy: #1A1209;
+}
+
+.dark {
+  --background: #0F0B06;
+  --foreground: #F5EFE6;
+  --border: #332719;
+  --input: #181109;
+  --primary: #C5A880;
+  --primary-foreground: #0F0B06;
+  --secondary: #1F160C;
+  --secondary-foreground: #F5EFE6;
+  --muted: #2E2214;
+  --muted-foreground: #9A8D7E;
+  --card: #181109;
+  --gold: #D6A451;
+  --whatsapp: #25D366;
+  --navy: #0F0B06;
+}
+
 @theme {
-  --color-background: #F4F1EA;
-  --color-foreground: #1A1209;
-  --color-border: #DDD4C6;
-  --color-input: #FFFFFF;
-  --color-primary: #1A1209;
-  --color-primary-foreground: #FFFFFF;
-  --color-secondary: #EAE2D5;
-  --color-secondary-foreground: #1A1209;
-  --color-muted: #E2D8CA;
-  --color-muted-foreground: #5C5248;
-  --color-card: #FFFFFF;
-  --color-gold: #A6792B;
-  --color-whatsapp: #25D366;
-  --color-navy: #1A1209;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-gold: var(--gold);
+  --color-whatsapp: var(--whatsapp);
+  --color-navy: var(--navy);
 
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -55,6 +91,13 @@ body {
   position: relative;
 }
 
+.dark body {
+  background:
+    radial-gradient(circle at top left, rgba(214, 164, 81, 0.06), transparent 34%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.02), transparent 28%),
+    linear-gradient(180deg, #0F0B06 0%, #070503 100%);
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -64,6 +107,11 @@ body::before {
   background-image: linear-gradient(rgba(255, 255, 255, 0.34) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.34) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: radial-gradient(circle at center, black 52%, transparent 100%);
+}
+
+.dark body::before {
+  opacity: 0.08;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
 }
 
 ::selection {

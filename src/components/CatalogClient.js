@@ -25,7 +25,7 @@ function ProductCard({ product }) {
   const activeColor = product.colorVariants[selectedColorIdx] || {};
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-[22px] border border-[#E6DDD0] bg-white/92 shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_44px_rgba(26,18,9,0.10)]">
+    <article className="group relative flex flex-col overflow-hidden rounded-[22px] border border-border bg-card/92 shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_44px_var(--border)]">
       {/* Image / Color Preview */}
       <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#F7F3EC] to-[#EAE2D5]">
         {activeColor.image ? (
@@ -42,7 +42,7 @@ function ProductCard({ product }) {
               style={{ backgroundColor: activeColor.colorHex || '#ccc' }}
             />
             <div className="absolute bottom-3 left-3 right-3">
-              <span className="inline-block rounded-full border border-white/70 bg-white/60 px-2.5 py-1 text-[10px] font-medium tracking-wider uppercase text-[#5F5449] backdrop-blur-md">
+              <span className="inline-block rounded-full border border-white/70 dark:border-border/20 dark:border-border/20 bg-card/60 px-2.5 py-1 text-[10px] font-medium tracking-wider uppercase text-[#5F5449] backdrop-blur-md">
                 {activeColor.colorName}
               </span>
             </div>
@@ -65,11 +65,11 @@ function ProductCard({ product }) {
       {/* Details */}
       <div className="flex flex-1 flex-col p-4 sm:p-5">
         {/* Brand pill */}
-        <span className="text-[11px] uppercase tracking-[0.2em] text-[#5C5248] mb-1.5 font-medium">
+        <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5 font-medium">
           {product.brand} · {product.category}
         </span>
 
-        <h3 className="font-headings text-lg font-bold text-[#1A1209] leading-snug line-clamp-2 h-12">
+        <h3 className="font-headings text-lg font-bold text-foreground leading-snug line-clamp-2 h-12">
           {product.name}
         </h3>
 
@@ -79,20 +79,20 @@ function ProductCard({ product }) {
 
         {/* Specs Row */}
         <div className="mt-3 flex flex-wrap items-center gap-1.5 h-14 overflow-hidden content-start">
-          <span className="rounded-lg border border-[#E6DDD0] bg-[#FBF8F4] px-2 py-1 text-[11px] font-medium text-[#4E443A]">
+          <span className="rounded-lg border border-border bg-secondary px-2 py-1 text-[11px] font-medium text-[#4E443A]">
             {product.pattern}
           </span>
-          <span className="rounded-lg border border-[#E6DDD0] bg-[#FBF8F4] px-2 py-1 text-[11px] font-medium text-[#4E443A]">
+          <span className="rounded-lg border border-border bg-secondary px-2 py-1 text-[11px] font-medium text-[#4E443A]">
             {product.composition}
           </span>
-          <span className="rounded-lg border border-[#E6DDD0] bg-[#FBF8F4] px-2 py-1 text-[11px] font-medium text-[#4E443A]">
+          <span className="rounded-lg border border-border bg-secondary px-2 py-1 text-[11px] font-medium text-[#4E443A]">
             {product.thanLength}m/than
           </span>
         </div>
 
         {/* Color Swatches */}
         <div className="mt-4 flex items-center gap-2 h-8">
-          <span className="text-xs uppercase tracking-[0.16em] text-[#5C5248] font-medium mr-1">Colors:</span>
+          <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground font-medium mr-1">Colors:</span>
           {product.colorVariants.map((cv, idx) => (
             <button
               key={cv.colorName}
@@ -101,7 +101,7 @@ function ProductCard({ product }) {
               className={`h-6 w-6 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
                 idx === selectedColorIdx
                   ? 'border-[#1A1209] ring-2 ring-[#A6792B]/30 scale-110'
-                  : 'border-[#E6DDD0]'
+                  : 'border-border'
               }`}
               style={{ backgroundColor: cv.colorHex }}
             />
@@ -111,10 +111,10 @@ function ProductCard({ product }) {
         {/* Price & CTA */}
         <div className="mt-auto pt-4 flex items-end justify-between border-t border-[#EDE7DC] mt-4">
           <div>
-            <span className="block font-headings text-xl font-bold text-[#1A1209]">
+            <span className="block font-headings text-xl font-bold text-foreground">
               ₹{product.pricePerMeter}
             </span>
-            <span className="text-[11px] text-[#5C5248] font-medium uppercase tracking-wider">per meter</span>
+            <span className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider">per meter</span>
           </div>
           <a
             href={getProductWhatsAppLink(product, activeColor)}
@@ -246,18 +246,18 @@ export default function CatalogClient() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             {/* Search */}
             <div className="relative flex-1">
-              <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9A8E80]" />
+              <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground/60" />
               <input
                 type="text"
                 placeholder="Search fabrics by name, brand, color, or composition..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-full border border-[#DDD4C6] bg-white/90 pl-11 pr-4 py-3 text-sm text-[#1A1209] placeholder:text-[#9A8E80] focus:outline-none focus:border-[#A6792B] focus:ring-2 focus:ring-[#A6792B]/15 transition-all"
+                className="w-full rounded-full border border-border bg-card/90 pl-11 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-[#A6792B] focus:ring-2 focus:ring-[#A6792B]/15 transition-all"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A8E80] hover:text-[#1A1209] transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 hover:text-foreground transition-colors"
                 >
                   <X size={14} />
                 </button>
@@ -269,8 +269,8 @@ export default function CatalogClient() {
               onClick={() => setShowFilters(!showFilters)}
               className={`inline-flex items-center justify-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition-all duration-200 ${
                 showFilters || hasActiveFilters
-                  ? 'border-[#1A1209] bg-[#1A1209] text-white'
-                  : 'border-[#DDD4C6] bg-white/90 text-[#1A1209] hover:border-[#1A1209]'
+                  ? 'border-[#1A1209] bg-primary text-white'
+                  : 'border-border bg-card/90 text-foreground hover:border-[#1A1209]'
               }`}
             >
               <Filter size={14} />
@@ -285,84 +285,84 @@ export default function CatalogClient() {
 
           {/* ─── Filter Dropdowns ─────────────────────────── */}
           {showFilters && (
-            <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 rounded-2xl border border-[#E6DDD0] bg-white/95 p-4 shadow-[0_12px_32px_rgba(26,18,9,0.06)] animate-in fade-in slide-in-from-top-2">
+            <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 rounded-2xl border border-border bg-card/95 p-4 shadow-[0_12px_32px_var(--border)] animate-in fade-in slide-in-from-top-2">
               {/* Brand Filter */}
               <div>
-                <label className="mb-1.5 block text-[10px] uppercase tracking-[0.18em] text-[#7D7366] font-medium">
+                <label className="mb-1.5 block text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-medium">
                   Brand
                 </label>
                 <div className="relative">
                   <select
                     value={brandFilter}
                     onChange={(e) => setBrandFilter(e.target.value)}
-                    className="w-full appearance-none rounded-xl border border-[#DDD4C6] bg-[#FBF8F4] px-3 py-2.5 pr-8 text-sm text-[#1A1209] focus:outline-none focus:border-[#A6792B] cursor-pointer"
+                    className="w-full appearance-none rounded-xl border border-border bg-secondary px-3 py-2.5 pr-8 text-sm text-foreground focus:outline-none focus:border-[#A6792B] cursor-pointer"
                   >
                     <option value="All">All Brands</option>
                     {brandNames.map((b) => (
                       <option key={b} value={b}>{b}</option>
                     ))}
                   </select>
-                  <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A8E80] pointer-events-none" />
+                  <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 pointer-events-none" />
                 </div>
               </div>
 
               {/* Category Filter */}
               <div>
-                <label className="mb-1.5 block text-[10px] uppercase tracking-[0.18em] text-[#7D7366] font-medium">
+                <label className="mb-1.5 block text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-medium">
                   Category
                 </label>
                 <div className="relative">
                   <select
                     value={categoryFilter}
                     onChange={(e) => setCategoryFilter(e.target.value)}
-                    className="w-full appearance-none rounded-xl border border-[#DDD4C6] bg-[#FBF8F4] px-3 py-2.5 pr-8 text-sm text-[#1A1209] focus:outline-none focus:border-[#A6792B] cursor-pointer"
+                    className="w-full appearance-none rounded-xl border border-border bg-secondary px-3 py-2.5 pr-8 text-sm text-foreground focus:outline-none focus:border-[#A6792B] cursor-pointer"
                   >
                     <option value="All">All Categories</option>
                     {allCategories.map((c) => (
                       <option key={c} value={c}>{c}</option>
                     ))}
                   </select>
-                  <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A8E80] pointer-events-none" />
+                  <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 pointer-events-none" />
                 </div>
               </div>
 
               {/* Pattern Filter */}
               <div>
-                <label className="mb-1.5 block text-[10px] uppercase tracking-[0.18em] text-[#7D7366] font-medium">
+                <label className="mb-1.5 block text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-medium">
                   Pattern
                 </label>
                 <div className="relative">
                   <select
                     value={patternFilter}
                     onChange={(e) => setPatternFilter(e.target.value)}
-                    className="w-full appearance-none rounded-xl border border-[#DDD4C6] bg-[#FBF8F4] px-3 py-2.5 pr-8 text-sm text-[#1A1209] focus:outline-none focus:border-[#A6792B] cursor-pointer"
+                    className="w-full appearance-none rounded-xl border border-border bg-secondary px-3 py-2.5 pr-8 text-sm text-foreground focus:outline-none focus:border-[#A6792B] cursor-pointer"
                   >
                     <option value="All">All Patterns</option>
                     {allPatterns.map((p) => (
                       <option key={p} value={p}>{p}</option>
                     ))}
                   </select>
-                  <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A8E80] pointer-events-none" />
+                  <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 pointer-events-none" />
                 </div>
               </div>
 
               {/* Lifecycle Filter */}
               <div>
-                <label className="mb-1.5 block text-[10px] uppercase tracking-[0.18em] text-[#7D7366] font-medium">
+                <label className="mb-1.5 block text-[10px] uppercase tracking-[0.18em] text-muted-foreground font-medium">
                   Status
                 </label>
                 <div className="relative">
                   <select
                     value={lifecycleFilter}
                     onChange={(e) => setLifecycleFilter(e.target.value)}
-                    className="w-full appearance-none rounded-xl border border-[#DDD4C6] bg-[#FBF8F4] px-3 py-2.5 pr-8 text-sm text-[#1A1209] focus:outline-none focus:border-[#A6792B] cursor-pointer"
+                    className="w-full appearance-none rounded-xl border border-border bg-secondary px-3 py-2.5 pr-8 text-sm text-foreground focus:outline-none focus:border-[#A6792B] cursor-pointer"
                   >
                     <option value="All">All Status</option>
                     <option value="New">★ New Arrivals</option>
                     <option value="Carryover">Carryover</option>
                     <option value="Phaseout">Clearance</option>
                   </select>
-                  <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A8E80] pointer-events-none" />
+                  <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 pointer-events-none" />
                 </div>
               </div>
 
@@ -371,7 +371,7 @@ export default function CatalogClient() {
                 <div className="col-span-2 sm:col-span-4 flex justify-end">
                   <button
                     onClick={clearAllFilters}
-                    className="inline-flex items-center gap-1.5 text-xs font-medium text-[#A6792B] hover:text-[#1A1209] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-medium text-[#A6792B] hover:text-foreground transition-colors"
                   >
                     <X size={12} />
                     Clear all filters
@@ -386,12 +386,12 @@ export default function CatalogClient() {
       {/* ─── Results Summary ──────────────────────────────── */}
       <div className="px-4 lg:px-6 pt-6 pb-2">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <p className="text-sm text-[#7D7366]">
-            Showing <span className="font-semibold text-[#1A1209]">{filteredProducts.length}</span>{' '}
+          <p className="text-sm text-muted-foreground">
+            Showing <span className="font-semibold text-foreground">{filteredProducts.length}</span>{' '}
             {filteredProducts.length === 1 ? 'product' : 'products'}
             {hasActiveFilters && ' (filtered)'}
             {' across '}
-            <span className="font-semibold text-[#1A1209]">{visibleBrands.length}</span>{' '}
+            <span className="font-semibold text-foreground">{visibleBrands.length}</span>{' '}
             {visibleBrands.length === 1 ? 'brand' : 'brands'}
           </p>
         </div>
@@ -401,16 +401,16 @@ export default function CatalogClient() {
       {visibleBrands.length === 0 ? (
         <div className="px-4 lg:px-6 py-20">
           <div className="max-w-7xl mx-auto text-center">
-            <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[#FBF8F4] border border-[#E6DDD0] mb-6">
-              <Package size={32} className="text-[#9A8E80]" />
+            <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-secondary border border-border mb-6">
+              <Package size={32} className="text-muted-foreground/60" />
             </div>
-            <h3 className="font-headings text-2xl font-bold text-[#1A1209] mb-3">No products found</h3>
-            <p className="text-sm text-[#6F655B] max-w-md mx-auto mb-6">
+            <h3 className="font-headings text-2xl font-bold text-foreground mb-3">No products found</h3>
+            <p className="text-sm text-muted-foreground max-w-md mx-auto mb-6">
               Try adjusting your search or filters. We have a wide range of fabrics across multiple brands.
             </p>
             <button
               onClick={clearAllFilters}
-              className="inline-flex items-center gap-2 rounded-full bg-[#1A1209] px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
             >
               Clear all filters
             </button>
@@ -425,10 +425,10 @@ export default function CatalogClient() {
             return (
               <section key={brandName} id={`brand-${brandName.toLowerCase()}`} className="max-w-7xl mx-auto scroll-mt-40">
                 {/* Brand Header */}
-                <div className="rounded-[24px] border border-white/70 bg-white/82 p-5 sm:p-6 shadow-[0_12px_32px_rgba(26,18,9,0.05)] mb-6">
+                <div className="rounded-[24px] border border-white/70 dark:border-border/20 dark:border-border/20 bg-card/82 p-5 sm:p-6 shadow-[0_12px_32px_rgba(26,18,9,0.05)] mb-6">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                     {brandInfo.logo ? (
-                      <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-xl border border-[#E6DDD0] bg-white px-3 shadow-sm">
+                      <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-xl border border-border bg-card px-3 shadow-sm">
                         <Image
                           src={brandInfo.logo}
                           alt={`${brandName} logo`}
@@ -438,7 +438,7 @@ export default function CatalogClient() {
                         />
                       </div>
                     ) : (
-                      <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-[#E6DDD0] bg-[#FBF8F4] text-2xl font-bold text-[#1A1209] shadow-sm"
+                      <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-border bg-secondary text-2xl font-bold text-foreground shadow-sm"
                            style={{ borderColor: brandInfo.accentColor + '30' }}
                       >
                         {brandName.slice(0, 1)}
@@ -447,15 +447,15 @@ export default function CatalogClient() {
 
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-1">
-                        <h2 className="font-headings text-2xl sm:text-3xl font-bold text-[#1A1209]">
+                        <h2 className="font-headings text-2xl sm:text-3xl font-bold text-foreground">
                           {brandName}
                         </h2>
-                        <span className="rounded-full border border-[#E6DDD0] bg-[#FBF8F4] px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-[#7D7366]">
+                        <span className="rounded-full border border-border bg-secondary px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
                           {brandName === 'Absoluto' || brandName === 'Pravar' ? '2 PDF Catalogs' : `${brandProducts.length} ${brandProducts.length === 1 ? 'item' : 'items'}`}
                         </span>
                       </div>
                       {brandInfo.tagline && (
-                        <p className="text-xs uppercase tracking-[0.16em] text-[#9A8E80] mb-1">{brandInfo.tagline}</p>
+                        <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground/60 mb-1">{brandInfo.tagline}</p>
                       )}
                     </div>
 
@@ -465,7 +465,7 @@ export default function CatalogClient() {
                           href={brandInfo.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-full border border-[#D9D0C2] bg-white/75 px-4 py-2 text-xs font-semibold text-[#1A1209] transition-all hover:border-[#A6792B] hover:bg-white"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/75 px-4 py-2 text-xs font-semibold text-foreground transition-all hover:border-[#A6792B] hover:bg-card"
                         >
                           <ExternalLink size={12} />
                           Visit Website
@@ -479,23 +479,23 @@ export default function CatalogClient() {
                   brandName === 'Absoluto' ? (
                     /* Absoluto PDF Catalogs Preview */
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="rounded-[22px] border border-[#E6DDD0] bg-white/92 p-6 flex flex-col justify-between shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-0.5">
+                      <div className="rounded-[22px] border border-border bg-card/92 p-6 flex flex-col justify-between shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-0.5">
                         <div>
                           <div className="h-12 w-12 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mb-4 shadow-inner">
                             <FileText size={22} />
                           </div>
-                          <h4 className="font-headings text-xl font-bold text-[#1A1209] mb-2">Absoluto - Pechaan 5 Catalog</h4>
-                          <p className="text-sm text-[#6F655B] leading-relaxed mb-4">
+                          <h4 className="font-headings text-xl font-bold text-foreground mb-2">Absoluto - Pechaan 5 Catalog</h4>
+                          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                             Browse our flagship suiting and celebration wear collections including premium textures, self-designs, and classic wholesale colors.
                           </p>
-                          <span className="inline-block rounded-full bg-[#F4ECE0] px-3 py-1 text-xs font-semibold text-[#5C5248] mb-5 border border-[#DDD4C6]">
+                          <span className="inline-block rounded-full bg-secondary border-border/40 px-3 py-1 text-xs font-semibold text-muted-foreground mb-5 border border-border">
                             PDF Document · 8.9 MB
                           </span>
                         </div>
                         <div className="flex gap-3">
                           <Link
                             href="/catalog/absoluto"
-                            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#1A1209] px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-black shadow-sm"
+                            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-black shadow-sm"
                           >
                             <Eye size={13} />
                             View Online
@@ -503,7 +503,7 @@ export default function CatalogClient() {
                           <a
                             href="/Absoluto - Pechaan 5 Catalog.pdf"
                             download
-                            className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#DDD4C6] bg-white px-4 py-2.5 text-xs font-semibold text-[#1A1209] transition-all hover:border-[#1A1209]"
+                            className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border bg-card px-4 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-[#1A1209]"
                           >
                             <Download size={13} />
                             Download
@@ -511,23 +511,23 @@ export default function CatalogClient() {
                         </div>
                       </div>
 
-                      <div className="rounded-[22px] border border-[#E6DDD0] bg-white/92 p-6 flex flex-col justify-between shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-0.5">
+                      <div className="rounded-[22px] border border-border bg-card/92 p-6 flex flex-col justify-between shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-0.5">
                         <div>
                           <div className="h-12 w-12 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mb-4 shadow-inner">
                             <FileText size={22} />
                           </div>
-                          <h4 className="font-headings text-xl font-bold text-[#1A1209] mb-2">Absoluto Kurta Catalog</h4>
-                          <p className="text-sm text-[#6F655B] leading-relaxed mb-4">
+                          <h4 className="font-headings text-xl font-bold text-foreground mb-2">Absoluto Kurta Catalog</h4>
+                          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                             Curated traditional wear, luxury kurtas, sherwani bases, and celebration wear fabrics for festive and occasion sourcing.
                           </p>
-                          <span className="inline-block rounded-full bg-[#F4ECE0] px-3 py-1 text-xs font-semibold text-[#5C5248] mb-5 border border-[#DDD4C6]">
+                          <span className="inline-block rounded-full bg-secondary border-border/40 px-3 py-1 text-xs font-semibold text-muted-foreground mb-5 border border-border">
                             PDF Document · 26.3 MB
                           </span>
                         </div>
                         <div className="flex gap-3">
                           <Link
                             href="/catalog/absoluto"
-                            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#1A1209] px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-black shadow-sm"
+                            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-black shadow-sm"
                           >
                             <Eye size={13} />
                             View Online
@@ -535,7 +535,7 @@ export default function CatalogClient() {
                           <a
                             href="/Absoluto_Kurta_Catalog_Final.pdf"
                             download
-                            className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#DDD4C6] bg-white px-4 py-2.5 text-xs font-semibold text-[#1A1209] transition-all hover:border-[#1A1209]"
+                            className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border bg-card px-4 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-[#1A1209]"
                           >
                             <Download size={13} />
                             Download
@@ -546,23 +546,23 @@ export default function CatalogClient() {
                   ) : (
                     /* Pravar PDF Catalogs Preview */
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="rounded-[22px] border border-[#E6DDD0] bg-white/92 p-6 flex flex-col justify-between shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-0.5">
+                      <div className="rounded-[22px] border border-border bg-card/92 p-6 flex flex-col justify-between shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-0.5">
                         <div>
                           <div className="h-12 w-12 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mb-4 shadow-inner">
                             <FileText size={22} />
                           </div>
-                          <h4 className="font-headings text-xl font-bold text-[#1A1209] mb-2">Pravar Jacket Catalogue</h4>
-                          <p className="text-sm text-[#6F655B] leading-relaxed mb-4">
+                          <h4 className="font-headings text-xl font-bold text-foreground mb-2">Pravar Jacket Catalogue</h4>
+                          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                             Premium collection of suiting, jacketings, designer checks, and custom structured fabrics for high-end styling and jackets.
                           </p>
-                          <span className="inline-block rounded-full bg-[#F4ECE0] px-3 py-1 text-xs font-semibold text-[#5C5248] mb-5 border border-[#DDD4C6]">
+                          <span className="inline-block rounded-full bg-secondary border-border/40 px-3 py-1 text-xs font-semibold text-muted-foreground mb-5 border border-border">
                             PDF Document · 83.7 MB
                           </span>
                         </div>
                         <div className="flex gap-3">
                           <Link
                             href="/catalog/pravar"
-                            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#1A1209] px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-black shadow-sm"
+                            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-black shadow-sm"
                           >
                             <Eye size={13} />
                             View Online
@@ -570,7 +570,7 @@ export default function CatalogClient() {
                           <a
                             href="/PRAVAR_JACKET CATALOGUE.pdf"
                             download
-                            className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#DDD4C6] bg-white px-4 py-2.5 text-xs font-semibold text-[#1A1209] transition-all hover:border-[#1A1209]"
+                            className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border bg-card px-4 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-[#1A1209]"
                           >
                             <Download size={13} />
                             Download
@@ -578,23 +578,23 @@ export default function CatalogClient() {
                         </div>
                       </div>
 
-                      <div className="rounded-[22px] border border-[#E6DDD0] bg-white/92 p-6 flex flex-col justify-between shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-0.5">
+                      <div className="rounded-[22px] border border-border bg-card/92 p-6 flex flex-col justify-between shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-0.5">
                         <div>
                           <div className="h-12 w-12 rounded-2xl bg-gold/10 flex items-center justify-center text-gold mb-4 shadow-inner">
                             <FileText size={22} />
                           </div>
-                          <h4 className="font-headings text-xl font-bold text-[#1A1209] mb-2">Pravar Kurta Catalogue</h4>
-                          <p className="text-sm text-[#6F655B] leading-relaxed mb-4">
+                          <h4 className="font-headings text-xl font-bold text-foreground mb-2">Pravar Kurta Catalogue</h4>
+                          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                             Exquisite traditional fabrics, fine prints, and plain & textured kurtas crafted for elegant celebration and festive wear.
                           </p>
-                          <span className="inline-block rounded-full bg-[#F4ECE0] px-3 py-1 text-xs font-semibold text-[#5C5248] mb-5 border border-[#DDD4C6]">
+                          <span className="inline-block rounded-full bg-secondary border-border/40 px-3 py-1 text-xs font-semibold text-muted-foreground mb-5 border border-border">
                             PDF Document · 37.0 MB
                           </span>
                         </div>
                         <div className="flex gap-3">
                           <Link
                             href="/catalog/pravar"
-                            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#1A1209] px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-black shadow-sm"
+                            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-xs font-semibold text-white transition-all hover:bg-black shadow-sm"
                           >
                             <Eye size={13} />
                             View Online
@@ -602,7 +602,7 @@ export default function CatalogClient() {
                           <a
                             href="/PRAVAR_KURTA CATALOGUE.pdf"
                             download
-                            className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#DDD4C6] bg-white px-4 py-2.5 text-xs font-semibold text-[#1A1209] transition-all hover:border-[#1A1209]"
+                            className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-border bg-card px-4 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-[#1A1209]"
                           >
                             <Download size={13} />
                             Download
@@ -623,7 +623,7 @@ export default function CatalogClient() {
                     <div className="mt-8 flex justify-center">
                       <Link
                         href={`/catalog/${brandName.toLowerCase()}`}
-                        className="inline-flex items-center gap-2 rounded-full border border-[#D9D0C2] bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#1A1209] transition-all hover:border-[#1A1209] hover:bg-[#1A1209] hover:text-white shadow-sm"
+                        className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-foreground transition-all hover:border-[#1A1209] hover:bg-primary hover:text-primary-foreground shadow-sm"
                       >
                         View all {brandName} products
                         <ChevronRight size={12} />
@@ -637,7 +637,7 @@ export default function CatalogClient() {
                   <div className="mt-8 flex justify-center">
                     <Link
                       href={`/catalog/${brandName.toLowerCase()}`}
-                      className="inline-flex items-center gap-2 rounded-full border border-[#D9D0C2] bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#1A1209] transition-all hover:border-[#1A1209] hover:bg-[#1A1209] hover:text-white shadow-sm"
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-2.5 text-xs font-semibold uppercase tracking-wider text-foreground transition-all hover:border-[#1A1209] hover:bg-primary hover:text-primary-foreground shadow-sm"
                     >
                       Open {brandName} PDF catalogs
                       <ChevronRight size={12} />

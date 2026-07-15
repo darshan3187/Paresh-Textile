@@ -14,7 +14,7 @@ export default function PTBottomNav() {
   ];
 
   return (
-    <div className="fixed bottom-2 left-2 right-2 z-50 rounded-2xl border border-white/70 bg-white/88 backdrop-blur-xl shadow-[0_12px_30px_rgba(26,18,9,0.12)] lg:hidden">
+    <div className="fixed bottom-2 left-2 right-2 z-50 rounded-2xl border border-white/70 dark:border-border/20 dark:border-border/20 bg-card/88 backdrop-blur-xl shadow-[0_12px_30px_var(--border)] lg:hidden">
       <div className="flex items-center justify-around px-2 py-2">
         {navItems.map((item, i) => {
           const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
@@ -25,8 +25,8 @@ export default function PTBottomNav() {
               href={item.href}
               className={`flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl transition-colors ${
                 isActive
-                  ? 'text-[#1A1209] font-semibold'
-                  : 'text-[#8A7E70] hover:text-[#1A1209]'
+                  ? 'text-foreground font-semibold'
+                  : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               {item.icon}

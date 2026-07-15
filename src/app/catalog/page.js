@@ -46,18 +46,18 @@ export default function CatalogPage() {
         {/* ─── Page Hero ─────────────────────────────────── */}
         <section className="px-4 lg:px-6 pt-8 sm:pt-10 lg:pt-14 pb-6 sm:pb-8">
           <div className="max-w-7xl mx-auto">
-            <div className="rounded-[30px] border border-white/70 bg-white/82 p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(26,18,9,0.08)]">
+            <div className="rounded-[30px] border border-white/70 dark:border-border/20 dark:border-border/20 bg-card/82 p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_var(--border)]">
               <div className="absolute -left-16 top-10 h-44 w-44 rounded-full bg-[rgba(166,121,43,0.08)] blur-3xl pointer-events-none" />
 
               <p className="section-pill mb-4 sm:mb-5">B2B Fabric Catalog</p>
 
               <div className="max-w-3xl">
-                <h1 className="font-headings text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1209] leading-[1.02] tracking-tight">
+                <h1 className="font-headings text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-[1.02] tracking-tight">
                   Browse our complete fabric{' '}
                   <span className="italic text-gold">collection.</span>
                 </h1>
 
-                <p className="mt-4 sm:mt-5 text-sm lg:text-base leading-7 text-[#6F655B]">
+                <p className="mt-4 sm:mt-5 text-sm lg:text-base leading-7 text-muted-foreground">
                   Explore 5,000+ wholesale fabric variants organized by brand. Each product includes
                   color options, specifications, and direct WhatsApp enquiry for instant pricing and
                   availability.

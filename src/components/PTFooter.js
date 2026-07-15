@@ -19,7 +19,7 @@ export default function PTFooter() {
             <ul className="space-y-3">
               {[{ l: 'Home', h: '/' }, { l: 'Catalog', h: '/catalog' }, { l: 'About Us', h: '/about' }, { l: 'Contact', h: '/contact' }].map((item) => (
                 <li key={item.h}>
-                  <Link href={item.h} className="text-sm text-white/55 hover:text-white transition-colors">{item.l}</Link>
+                  <Link href={item.h} className="text-sm text-white/55 hover:text-primary-foreground transition-colors">{item.l}</Link>
                 </li>
               ))}
             </ul>
@@ -28,14 +28,14 @@ export default function PTFooter() {
             <p className="text-[10px] uppercase tracking-[0.18em] text-white/30 mb-5">Contact</p>
             <ul className="space-y-3">
               <li className="text-sm text-white/55">Safal 6 , Dudheshwar, Ahmedabad, Gujarat 380004</li>
-              <li><a href="tel:+919327387674" className="text-sm text-white/55 hover:text-white transition-colors">+91 9327387674</a></li>
-              <li><a href="mailto:info@pareshtextile.com" className="text-sm text-white/55 hover:text-white transition-colors">info@pareshtextile.com</a></li>
+              <li><a href="tel:+919327387674" className="text-sm text-white/55 hover:text-primary-foreground transition-colors">+91 9327387674</a></li>
+              <li><a href="mailto:info@pareshtextile.com" className="text-sm text-white/55 hover:text-primary-foreground transition-colors">info@pareshtextile.com</a></li>
               <li>
                 <a
                   href="https://www.instagram.com/pt__1994/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-white/55 hover:text-white transition-colors inline-flex items-center gap-1.5"
+                  className="text-sm text-white/55 hover:text-primary-foreground transition-colors inline-flex items-center gap-1.5"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

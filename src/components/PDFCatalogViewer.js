@@ -68,14 +68,14 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
 
   if (catalogs.length === 0) {
     return (
-      <div className="rounded-[28px] border border-[#E6DDD0] bg-white/95 p-8 text-center text-[#6F655B]">
+      <div className="rounded-[28px] border border-border bg-card/95 p-8 text-center text-muted-foreground">
         No catalogs found for this brand.
       </div>
     );
   }
 
   return (
-    <div className="rounded-[28px] border border-[#E6DDD0] bg-white/95 p-5 sm:p-6 lg:p-8 shadow-[0_16px_50px_rgba(26,18,9,0.06)]">
+    <div className="rounded-[28px] border border-border bg-card/95 p-5 sm:p-6 lg:p-8 shadow-[0_16px_50px_var(--border)]">
       {/* Catalog Selector Tabs */}
       <div className="flex flex-col sm:flex-row gap-3 border-b border-[#EDE7DC] pb-5 mb-6">
         {catalogs.map((pdf, idx) => (
@@ -84,8 +84,8 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
             onClick={() => setActiveTab(idx)}
             className={`flex items-center gap-3 px-5 py-3.5 rounded-2xl text-sm font-semibold transition-all duration-200 cursor-pointer ${
               idx === activeTab
-                ? 'bg-[#1A1209] text-white shadow-md'
-                : 'border border-[#DDD4C6] bg-[#FBF8F4] text-[#1A1209] hover:border-[#1A1209]'
+                ? 'bg-primary text-white shadow-md'
+                : 'border border-border bg-secondary text-foreground hover:border-[#1A1209]'
             }`}
           >
             <BookOpen size={16} />
@@ -105,20 +105,20 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
               Full PDF Catalog
             </div>
             
-            <h3 className="font-headings text-2xl lg:text-3xl font-bold text-[#1A1209] mb-4">
+            <h3 className="font-headings text-2xl lg:text-3xl font-bold text-foreground mb-4">
               {activePdf.name}
             </h3>
             
-            <p className="text-sm leading-relaxed text-[#6F655B] mb-6">
+            <p className="text-sm leading-relaxed text-muted-foreground mb-6">
               {activePdf.description}
             </p>
 
-            <div className="rounded-2xl bg-[#FBF8F4] border border-[#DDD4C6] p-4 mb-6">
-              <div className="flex items-center justify-between text-xs text-[#5C5248] font-medium uppercase tracking-wider mb-2">
+            <div className="rounded-2xl bg-secondary border border-border p-4 mb-6">
+              <div className="flex items-center justify-between text-xs text-muted-foreground font-medium uppercase tracking-wider mb-2">
                 <span>Format</span>
                 <span>File Size</span>
               </div>
-              <div className="flex items-center justify-between text-sm font-bold text-[#1A1209]">
+              <div className="flex items-center justify-between text-sm font-bold text-foreground">
                 <span className="flex items-center gap-1.5">
                   <span className="h-2 w-2 rounded-full bg-red-500"></span>
                   Adobe PDF Document
@@ -143,7 +143,7 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
               <a
                 href={`/${activePdf.fileName}`}
                 download
-                className="flex items-center justify-center gap-2 rounded-xl border border-[#DDD4C6] bg-white py-3 text-xs font-semibold text-[#1A1209] hover:border-[#1A1209] transition-all"
+                className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-3 text-xs font-semibold text-foreground hover:border-[#1A1209] transition-all"
               >
                 <Download size={14} />
                 Download PDF
@@ -152,7 +152,7 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
                 href={`/${activePdf.fileName}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-xl border border-[#DDD4C6] bg-white py-3 text-xs font-semibold text-[#1A1209] hover:border-[#1A1209] transition-all"
+                className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-3 text-xs font-semibold text-foreground hover:border-[#1A1209] transition-all"
               >
                 <ExternalLink size={14} />
                 Open Fullscreen
@@ -162,14 +162,14 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
         </div>
 
         {/* PDF viewer panel */}
-        <div className="relative min-h-[450px] lg:min-h-[580px] rounded-2xl border border-[#E6DDD0] overflow-hidden bg-[#FBF8F4] shadow-sm flex flex-col">
+        <div className="relative min-h-[450px] lg:min-h-[580px] rounded-2xl border border-border overflow-hidden bg-secondary shadow-sm flex flex-col">
           {isMobile ? (
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
               <div className="h-16 w-16 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
                 <FileText size={32} />
               </div>
-              <h4 className="font-headings text-lg font-bold text-[#1A1209] mb-2">Mobile PDF View</h4>
-              <p className="text-sm text-[#6F655B] max-w-xs mb-6">
+              <h4 className="font-headings text-lg font-bold text-foreground mb-2">Mobile PDF View</h4>
+              <p className="text-sm text-muted-foreground max-w-xs mb-6">
                 On mobile devices, we recommend opening the catalog in a new tab or downloading it to view all pages smoothly.
               </p>
               <div className="flex flex-col gap-2 w-full max-w-[240px]">
@@ -177,7 +177,7 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
                   href={`/${activePdf.fileName}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-xl bg-[#1A1209] py-3 text-xs font-semibold text-white shadow-sm hover:bg-black"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-xs font-semibold text-white shadow-sm hover:bg-black"
                 >
                   <Eye size={14} />
                   Open in New Tab
@@ -185,7 +185,7 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
                 <a
                   href={`/${activePdf.fileName}`}
                   download
-                  className="flex items-center justify-center gap-2 rounded-xl border border-[#DDD4C6] bg-white py-3 text-xs font-semibold text-[#1A1209] hover:border-black"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-3 text-xs font-semibold text-foreground hover:border-black"
                 >
                   <Download size={14} />
                   Download PDF ({activePdf.fileSize})
@@ -194,7 +194,7 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
             </div>
           ) : (
             <div className="flex-1 flex flex-col">
-              <div className="bg-[#F4ECE0]/60 px-4 py-2 border-b border-[#E6DDD0] flex items-center justify-between text-xs text-[#5C5248] font-medium">
+              <div className="bg-secondary border-border/40/60 px-4 py-2 border-b border-border flex items-center justify-between text-xs text-muted-foreground font-medium">
                 <span className="flex items-center gap-1.5">
                   <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
                   Interactive Viewer Active
@@ -206,7 +206,7 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
                 className="w-full flex-1 border-0"
                 title={activePdf.name}
               />
-              <div className="bg-[#F4ECE0]/30 px-4 py-2.5 border-t border-[#E6DDD0] flex items-center gap-2 text-xs text-[#7D7366]">
+              <div className="bg-secondary border-border/40/30 px-4 py-2.5 border-t border-border flex items-center gap-2 text-xs text-muted-foreground">
                 <AlertCircle size={13} className="text-gold shrink-0" />
                 <span>Tip: Hover near the top of the viewer to print or zoom.</span>
               </div>

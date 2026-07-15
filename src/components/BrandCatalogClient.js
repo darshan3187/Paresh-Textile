@@ -23,7 +23,7 @@ function ProductCard({ product }) {
   const activeColor = product.colorVariants[selectedColorIdx] || {};
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-[22px] border border-[#E6DDD0] bg-white/92 shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_44px_rgba(26,18,9,0.10)]">
+    <article className="group relative flex flex-col overflow-hidden rounded-[22px] border border-border bg-card/92 shadow-[0_8px_28px_rgba(26,18,9,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_44px_var(--border)]">
       {/* Image / Color Preview */}
       <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#F7F3EC] to-[#EAE2D5]">
         {activeColor.image ? (
@@ -40,7 +40,7 @@ function ProductCard({ product }) {
               style={{ backgroundColor: activeColor.colorHex || '#ccc' }}
             />
             <div className="absolute bottom-3 left-3 right-3">
-              <span className="inline-block rounded-full border border-white/70 bg-white/60 px-2.5 py-1 text-[10px] font-medium tracking-wider uppercase text-[#5F5449] backdrop-blur-md">
+              <span className="inline-block rounded-full border border-white/70 dark:border-border/20 dark:border-border/20 bg-card/60 px-2.5 py-1 text-[10px] font-medium tracking-wider uppercase text-[#5F5449] backdrop-blur-md">
                 {activeColor.colorName}
               </span>
             </div>
@@ -62,11 +62,11 @@ function ProductCard({ product }) {
 
       {/* Details */}
       <div className="flex flex-1 flex-col p-4 sm:p-5">
-        <span className="text-[11px] uppercase tracking-[0.2em] text-[#5C5248] mb-1.5 font-medium">
+        <span className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5 font-medium">
           {product.brand} · {product.category}
         </span>
 
-        <h3 className="font-headings text-lg font-bold text-[#1A1209] leading-snug line-clamp-2 h-12">
+        <h3 className="font-headings text-lg font-bold text-foreground leading-snug line-clamp-2 h-12">
           {product.name}
         </h3>
 
@@ -76,20 +76,20 @@ function ProductCard({ product }) {
 
         {/* Specs Row */}
         <div className="mt-3 flex flex-wrap items-center gap-1.5 h-14 overflow-hidden content-start">
-          <span className="rounded-lg border border-[#E6DDD0] bg-[#FBF8F4] px-2 py-1 text-[11px] font-medium text-[#4E443A]">
+          <span className="rounded-lg border border-border bg-secondary px-2 py-1 text-[11px] font-medium text-[#4E443A]">
             {product.pattern}
           </span>
-          <span className="rounded-lg border border-[#E6DDD0] bg-[#FBF8F4] px-2 py-1 text-[11px] font-medium text-[#4E443A]">
+          <span className="rounded-lg border border-border bg-secondary px-2 py-1 text-[11px] font-medium text-[#4E443A]">
             {product.composition}
           </span>
-          <span className="rounded-lg border border-[#E6DDD0] bg-[#FBF8F4] px-2 py-1 text-[11px] font-medium text-[#4E443A]">
+          <span className="rounded-lg border border-border bg-secondary px-2 py-1 text-[11px] font-medium text-[#4E443A]">
             {product.thanLength}m/than
           </span>
         </div>
 
         {/* Color Swatches */}
         <div className="mt-4 flex items-center gap-2 h-8">
-          <span className="text-xs uppercase tracking-[0.16em] text-[#5C5248] font-medium mr-1">Colors:</span>
+          <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground font-medium mr-1">Colors:</span>
           {product.colorVariants.map((cv, idx) => (
             <button
               key={cv.colorName}
@@ -98,7 +98,7 @@ function ProductCard({ product }) {
               className={`h-6 w-6 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
                 idx === selectedColorIdx
                   ? 'border-[#1A1209] ring-2 ring-[#A6792B]/30 scale-110'
-                  : 'border-[#E6DDD0]'
+                  : 'border-border'
               }`}
               style={{ backgroundColor: cv.colorHex }}
             />
@@ -108,10 +108,10 @@ function ProductCard({ product }) {
         {/* Price & CTA */}
         <div className="mt-auto pt-4 flex items-end justify-between border-t border-[#EDE7DC] mt-4">
           <div>
-            <span className="block font-headings text-xl font-bold text-[#1A1209]">
+            <span className="block font-headings text-xl font-bold text-foreground">
               ₹{product.pricePerMeter}
             </span>
-            <span className="text-[11px] text-[#5C5248] font-medium uppercase tracking-wider">per meter</span>
+            <span className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider">per meter</span>
           </div>
           <a
             href={getProductWhatsAppLink(product, activeColor)}
@@ -157,15 +157,15 @@ export default function BrandCatalogClient({ brandSlug }) {
   }, [brandInfo.reels]);
 
   const reelsSection = shuffledReels.length > 0 ? (
-    <section className="px-4 lg:px-6 pb-12 sm:pb-16 lg:pb-20 border-t border-[#E6DDD0]/40 pt-12">
+    <section className="px-4 lg:px-6 pb-12 sm:pb-16 lg:pb-20 border-t border-border/40 pt-12">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <p className="section-pill mb-3">Instagram Showcase</p>
-            <h2 className="font-headings text-2xl sm:text-3xl font-bold text-[#1A1209]">
+            <h2 className="font-headings text-2xl sm:text-3xl font-bold text-foreground">
               {brandName} Collection Reels
             </h2>
-            <p className="text-sm text-[#6F655B] mt-1">
+            <p className="text-sm text-muted-foreground mt-1">
               Watch live texture close-ups and design highlights from our showroom.
             </p>
           </div>
@@ -173,7 +173,7 @@ export default function BrandCatalogClient({ brandSlug }) {
             href={brandInfo.instagramUrl || "https://www.instagram.com/pt__1994/"}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-[#D9D0C2] bg-white/75 px-5 py-2.5 text-xs font-semibold text-[#1A1209] transition-all hover:border-[#1A1209] hover:bg-white shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-card/75 px-5 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-[#1A1209] hover:bg-card shadow-sm"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -199,7 +199,7 @@ export default function BrandCatalogClient({ brandSlug }) {
           {shuffledReels.map((reel) => (
             <div
               key={reel.id}
-              className="group relative overflow-hidden rounded-[24px] border border-[#E6DDD0] bg-white p-2.5 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-[24px] border border-border bg-card p-2.5 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
               <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden bg-black/5 shadow-inner">
                 <iframe
@@ -226,16 +226,16 @@ export default function BrandCatalogClient({ brandSlug }) {
             {/* Back link */}
             <Link
               href="/catalog"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#7D7366] hover:text-[#1A1209] transition-colors mb-5"
+              className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-5"
             >
               <ArrowLeft size={15} />
               Back to full catalog
             </Link>
 
-            <div className={`rounded-[28px] border border-white/70 bg-gradient-to-r ${brandInfo.tone || 'from-white to-white'} p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(26,18,9,0.06)]`}>
+            <div className={`rounded-[28px] border border-white/70 dark:border-border/20 dark:border-border/20 dark:border-border/20 bg-gradient-to-r ${brandInfo.tone || 'from-white to-white'} dark:from-card/70 dark:via-card/40 dark:to-card/70 p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_var(--border)]`}>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
                 {brandInfo.logo ? (
-                  <div className="flex h-20 w-28 shrink-0 items-center justify-center rounded-2xl border border-[#E6DDD0] bg-white px-4 shadow-sm">
+                  <div className="flex h-20 w-28 shrink-0 items-center justify-center rounded-2xl border border-border bg-white px-4 shadow-sm">
                     <Image
                       src={brandInfo.logo}
                       alt={`${brandName} logo`}
@@ -246,7 +246,7 @@ export default function BrandCatalogClient({ brandSlug }) {
                   </div>
                 ) : (
                   <div
-                    className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 bg-white/80 text-3xl font-bold text-[#1A1209] shadow-sm"
+                    className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 bg-card/80 text-3xl font-bold text-foreground shadow-sm"
                     style={{ borderColor: brandInfo.accentColor || '#DDD4C6' }}
                   >
                     {brandName.slice(0, 1)}
@@ -254,16 +254,16 @@ export default function BrandCatalogClient({ brandSlug }) {
                 )}
 
                 <div className="flex-1">
-                  <h1 className="font-headings text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1209] leading-tight tracking-tight">
+                  <h1 className="font-headings text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight">
                     {brandName}
                   </h1>
                   {brandInfo.tagline && (
-                    <p className="mt-1 text-sm uppercase tracking-[0.16em] text-[#9A8E80]">
+                    <p className="mt-1 text-sm uppercase tracking-[0.16em] text-muted-foreground/60">
                       {brandInfo.tagline}
                     </p>
                   )}
                   {brandInfo.description && (
-                    <p className="mt-3 text-sm text-[#6F655B] max-w-2xl leading-relaxed">
+                    <p className="mt-3 text-sm text-muted-foreground max-w-2xl leading-relaxed">
                       {brandInfo.description}
                     </p>
                   )}
@@ -275,7 +275,7 @@ export default function BrandCatalogClient({ brandSlug }) {
                       href={brandInfo.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-full border border-[#D9D0C2] bg-white/80 px-5 py-2.5 text-xs font-semibold text-[#1A1209] transition-all hover:border-[#A6792B] hover:bg-white shadow-sm"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/80 px-5 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-[#A6792B] hover:bg-card shadow-sm"
                     >
                       <ExternalLink size={13} />
                       Official Website
@@ -341,16 +341,16 @@ export default function BrandCatalogClient({ brandSlug }) {
           {/* Back link */}
           <Link
             href="/catalog"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#7D7366] hover:text-[#1A1209] transition-colors mb-5"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-5"
           >
             <ArrowLeft size={15} />
             Back to full catalog
           </Link>
 
-          <div className={`rounded-[28px] border border-white/70 bg-gradient-to-r ${brandInfo.tone || 'from-white to-white'} p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_rgba(26,18,9,0.06)]`}>
+          <div className={`rounded-[28px] border border-white/70 dark:border-border/20 dark:border-border/20 dark:border-border/20 bg-gradient-to-r ${brandInfo.tone || 'from-white to-white'} dark:from-card/70 dark:via-card/40 dark:to-card/70 p-6 sm:p-8 lg:p-10 shadow-[0_20px_60px_var(--border)]`}>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               {brandInfo.logo ? (
-                <div className="flex h-20 w-28 shrink-0 items-center justify-center rounded-2xl border border-[#E6DDD0] bg-white px-4 shadow-sm">
+                <div className="flex h-20 w-28 shrink-0 items-center justify-center rounded-2xl border border-border bg-white px-4 shadow-sm">
                   <Image
                     src={brandInfo.logo}
                     alt={`${brandName} logo`}
@@ -361,7 +361,7 @@ export default function BrandCatalogClient({ brandSlug }) {
                 </div>
               ) : (
                 <div
-                  className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 bg-white/80 text-3xl font-bold text-[#1A1209] shadow-sm"
+                  className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border-2 bg-card/80 text-3xl font-bold text-foreground shadow-sm"
                   style={{ borderColor: brandInfo.accentColor || '#DDD4C6' }}
                 >
                   {brandName.slice(0, 1)}
@@ -369,16 +369,16 @@ export default function BrandCatalogClient({ brandSlug }) {
               )}
 
               <div className="flex-1">
-                <h1 className="font-headings text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1209] leading-tight tracking-tight">
+                <h1 className="font-headings text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight">
                   {brandName}
                 </h1>
                 {brandInfo.tagline && (
-                  <p className="mt-1 text-sm uppercase tracking-[0.16em] text-[#9A8E80]">
+                  <p className="mt-1 text-sm uppercase tracking-[0.16em] text-muted-foreground/60">
                     {brandInfo.tagline}
                   </p>
                 )}
                 {brandInfo.description && (
-                  <p className="mt-3 text-sm text-[#6F655B] max-w-2xl leading-relaxed">
+                  <p className="mt-3 text-sm text-muted-foreground max-w-2xl leading-relaxed">
                     {brandInfo.description}
                   </p>
                 )}
@@ -390,7 +390,7 @@ export default function BrandCatalogClient({ brandSlug }) {
                     href={brandInfo.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[#D9D0C2] bg-white/80 px-5 py-2.5 text-xs font-semibold text-[#1A1209] transition-all hover:border-[#A6792B] hover:bg-white shadow-sm"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/80 px-5 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-[#A6792B] hover:bg-card shadow-sm"
                   >
                     <ExternalLink size={13} />
                     Official Website
@@ -401,13 +401,13 @@ export default function BrandCatalogClient({ brandSlug }) {
 
             {/* Stats bar */}
             <div className="mt-6 flex flex-wrap items-center gap-4 text-sm">
-              <span className="rounded-full border border-[#E6DDD0] bg-white/70 px-3.5 py-1.5 text-[#5F5449] font-medium">
+              <span className="rounded-full border border-border bg-card/70 px-3.5 py-1.5 text-[#5F5449] font-medium">
                 {allProducts.length} {allProducts.length === 1 ? 'product' : 'products'} total
               </span>
-              <span className="rounded-full border border-[#E6DDD0] bg-white/70 px-3.5 py-1.5 text-[#5F5449] font-medium">
+              <span className="rounded-full border border-border bg-card/70 px-3.5 py-1.5 text-[#5F5449] font-medium">
                 {allCategories.length} {allCategories.length === 1 ? 'category' : 'categories'}
               </span>
-              <span className="rounded-full border border-[#E6DDD0] bg-white/70 px-3.5 py-1.5 text-[#5F5449] font-medium">
+              <span className="rounded-full border border-border bg-card/70 px-3.5 py-1.5 text-[#5F5449] font-medium">
                 {allProducts.filter((p) => p.lifecycleStatus === 'New').length} new arrivals
               </span>
             </div>
@@ -421,18 +421,18 @@ export default function BrandCatalogClient({ brandSlug }) {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             {/* Search */}
             <div className="relative flex-1">
-              <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9A8E80]" />
+              <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground/60" />
               <input
                 type="text"
                 placeholder={`Search ${brandName} fabrics by name, color, or composition...`}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-full border border-[#DDD4C6] bg-white/90 pl-11 pr-4 py-3 text-sm text-[#1A1209] placeholder:text-[#9A8E80] focus:outline-none focus:border-[#A6792B] focus:ring-2 focus:ring-[#A6792B]/15 transition-all"
+                className="w-full rounded-full border border-border bg-card/90 pl-11 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-[#A6792B] focus:ring-2 focus:ring-[#A6792B]/15 transition-all"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A8E80] hover:text-[#1A1209] transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 hover:text-foreground transition-colors"
                 >
                   <X size={14} />
                 </button>
@@ -445,48 +445,48 @@ export default function BrandCatalogClient({ brandSlug }) {
                 <select
                   value={categoryFilter}
                   onChange={(e) => setCategoryFilter(e.target.value)}
-                  className="appearance-none rounded-full border border-[#DDD4C6] bg-white/90 px-4 py-3 pr-8 text-sm text-[#1A1209] focus:outline-none focus:border-[#A6792B] cursor-pointer"
+                  className="appearance-none rounded-full border border-border bg-card/90 px-4 py-3 pr-8 text-sm text-foreground focus:outline-none focus:border-[#A6792B] cursor-pointer"
                 >
                   <option value="All">All Categories</option>
                   {allCategories.map((c) => (
                     <option key={c} value={c}>{c}</option>
                   ))}
                 </select>
-                <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A8E80] pointer-events-none" />
+                <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 pointer-events-none" />
               </div>
 
               <div className="relative">
                 <select
                   value={patternFilter}
                   onChange={(e) => setPatternFilter(e.target.value)}
-                  className="appearance-none rounded-full border border-[#DDD4C6] bg-white/90 px-4 py-3 pr-8 text-sm text-[#1A1209] focus:outline-none focus:border-[#A6792B] cursor-pointer"
+                  className="appearance-none rounded-full border border-border bg-card/90 px-4 py-3 pr-8 text-sm text-foreground focus:outline-none focus:border-[#A6792B] cursor-pointer"
                 >
                   <option value="All">All Patterns</option>
                   {allPatterns.map((p) => (
                     <option key={p} value={p}>{p}</option>
                   ))}
                 </select>
-                <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A8E80] pointer-events-none" />
+                <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 pointer-events-none" />
               </div>
 
               <div className="relative">
                 <select
                   value={lifecycleFilter}
                   onChange={(e) => setLifecycleFilter(e.target.value)}
-                  className="appearance-none rounded-full border border-[#DDD4C6] bg-white/90 px-4 py-3 pr-8 text-sm text-[#1A1209] focus:outline-none focus:border-[#A6792B] cursor-pointer"
+                  className="appearance-none rounded-full border border-border bg-card/90 px-4 py-3 pr-8 text-sm text-foreground focus:outline-none focus:border-[#A6792B] cursor-pointer"
                 >
                   <option value="All">All Status</option>
                   <option value="New">★ New</option>
                   <option value="Carryover">Carryover</option>
                   <option value="Phaseout">Clearance</option>
                 </select>
-                <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#9A8E80] pointer-events-none" />
+                <ChevronDown size={13} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground/60 pointer-events-none" />
               </div>
 
               {hasActiveFilters && (
                 <button
                   onClick={clearAllFilters}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-[#1A1209] px-4 py-3 text-xs font-medium text-white transition-all hover:bg-[#2a200f]"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-3 text-xs font-medium text-white transition-all hover:bg-[#2a200f]"
                 >
                   <X size={12} />
                   Clear
@@ -500,8 +500,8 @@ export default function BrandCatalogClient({ brandSlug }) {
       {/* ─── Results Summary ──────────────────────────────── */}
       <div className="px-4 lg:px-6 pt-6 pb-2">
         <div className="max-w-7xl mx-auto">
-          <p className="text-sm text-[#7D7366]">
-            Showing <span className="font-semibold text-[#1A1209]">{filteredProducts.length}</span>{' '}
+          <p className="text-sm text-muted-foreground">
+            Showing <span className="font-semibold text-foreground">{filteredProducts.length}</span>{' '}
             of {allProducts.length} {brandName} {allProducts.length === 1 ? 'product' : 'products'}
             {hasActiveFilters && ' (filtered)'}
           </p>
@@ -512,18 +512,18 @@ export default function BrandCatalogClient({ brandSlug }) {
       {filteredProducts.length === 0 ? (
         <div className="px-4 lg:px-6 py-20">
           <div className="max-w-7xl mx-auto text-center">
-            <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[#FBF8F4] border border-[#E6DDD0] mb-6">
-              <Package size={32} className="text-[#9A8E80]" />
+            <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-secondary border border-border mb-6">
+              <Package size={32} className="text-muted-foreground/60" />
             </div>
-            <h3 className="font-headings text-2xl font-bold text-[#1A1209] mb-3">
+            <h3 className="font-headings text-2xl font-bold text-foreground mb-3">
               No {brandName} products found
             </h3>
-            <p className="text-sm text-[#6F655B] max-w-md mx-auto mb-6">
+            <p className="text-sm text-muted-foreground max-w-md mx-auto mb-6">
               Try adjusting your search or filters to find what you're looking for.
             </p>
             <button
               onClick={clearAllFilters}
-              className="inline-flex items-center gap-2 rounded-full bg-[#1A1209] px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
             >
               Clear all filters
             </button>
