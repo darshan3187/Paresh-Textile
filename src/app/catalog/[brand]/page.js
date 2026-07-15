@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
       siteName: 'PT - Paresh Textile',
       images: [
         {
-          url: 'https://paresh-textile.vercel.app/hero.png',
+          url: 'https://paresh-textile.vercel.app/hero.webp',
           width: 1200,
           height: 630,
           alt: `${brandInfo.name} Fabrics - PT - Paresh Textile`,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: titleText,
       description: descriptionText,
-      images: ['https://paresh-textile.vercel.app/hero.png'],
+      images: ['https://paresh-textile.vercel.app/hero.webp'],
     },
   };
 }

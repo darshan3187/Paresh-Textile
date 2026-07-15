@@ -5,12 +5,14 @@ import { Analytics } from "@vercel/analytics/next";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
   variable: "--font-pt-serif",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {

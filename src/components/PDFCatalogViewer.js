@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { FileText, Download, ExternalLink, MessageCircle, Eye, BookOpen, AlertCircle } from 'lucide-react';
+import Image from 'next/image';
+import { FileText, Download, ExternalLink, MessageCircle, Eye, BookOpen, AlertCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const BRAND_PDF_CATALOGS = {
   absoluto: [
@@ -45,13 +46,19 @@ const BRAND_PDF_CATALOGS = {
 export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
   const [activeTab, setActiveTab] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentPreviewPage, setCurrentPreviewPage] = useState(1);
 
   const catalogs = BRAND_PDF_CATALOGS[brandSlug.toLowerCase()] || [];
   const activePdf = catalogs[activeTab] || {};
 
   useEffect(() => {
     setActiveTab(0);
+    setCurrentPreviewPage(1);
   }, [brandSlug]);
+
+  useEffect(() => {
+    setCurrentPreviewPage(1);
+  }, [activeTab]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -164,15 +171,66 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
         {/* PDF viewer panel */}
         <div className="relative min-h-[450px] lg:min-h-[580px] rounded-2xl border border-border overflow-hidden bg-secondary shadow-sm flex flex-col">
           {isMobile ? (
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-              <div className="h-16 w-16 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-4">
-                <FileText size={32} />
+            <div className="flex-1 flex flex-col bg-[#FDFBF7]">
+              {/* Header inside viewer */}
+              <div className="bg-secondary/40 border-b border-border/40 px-4 py-2 flex items-center justify-between text-xs text-muted-foreground font-medium">
+                <span className="flex items-center gap-1.5 font-semibold text-gold">
+                  <span className="h-2 w-2 rounded-full bg-gold animate-pulse"></span>
+                  Preview Mode (First 3 Pages)
+                </span>
+                <span>Page {currentPreviewPage} of 3</span>
               </div>
-              <h4 className="font-headings text-lg font-bold text-foreground mb-2">Mobile PDF View</h4>
-              <p className="text-sm text-muted-foreground max-w-xs mb-6">
-                On mobile devices, we recommend opening the catalog in a new tab or downloading it to view all pages smoothly.
-              </p>
-              <div className="flex flex-col gap-2 w-full max-w-[240px]">
+              
+              {/* Image Carousel Area */}
+              <div className="flex-1 relative min-h-[340px] flex items-center justify-center p-4">
+                <div className="relative aspect-[3/4] h-full max-h-[360px] w-auto shadow-md rounded-lg overflow-hidden border border-border bg-white">
+                  <Image
+                    src={`/previews/${activePdf.id}-page-${currentPreviewPage}.webp`}
+                    alt={`${activePdf.name} page ${currentPreviewPage}`}
+                    fill
+                    sizes="(max-width: 768px) 80vw, 350px"
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                
+                {/* Navigation Arrows */}
+                <button
+                  onClick={() => setCurrentPreviewPage(prev => Math.max(1, prev - 1))}
+                  disabled={currentPreviewPage === 1}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full border border-border bg-white/90 hover:bg-white text-foreground disabled:opacity-30 disabled:cursor-not-allowed shadow-md z-10 cursor-pointer"
+                  aria-label="Previous Page"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <button
+                  onClick={() => setCurrentPreviewPage(prev => Math.min(3, prev + 1))}
+                  disabled={currentPreviewPage === 3}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full border border-border bg-white/90 hover:bg-white text-foreground disabled:opacity-30 disabled:cursor-not-allowed shadow-md z-10 cursor-pointer"
+                  aria-label="Next Page"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+
+              {/* Carousel Dots */}
+              <div className="flex justify-center gap-1.5 pb-4">
+                {[1, 2, 3].map((pageIndex) => (
+                  <button
+                    key={pageIndex}
+                    onClick={() => setCurrentPreviewPage(pageIndex)}
+                    className={`h-2 rounded-full transition-all cursor-pointer ${
+                      pageIndex === currentPreviewPage
+                        ? 'bg-amber-600 w-4'
+                        : 'bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2'
+                    }`}
+                    aria-label={`Go to page ${pageIndex}`}
+                  />
+                ))}
+              </div>
+
+              {/* Mobile CTAs */}
+              <div className="p-4 border-t border-border/40 bg-secondary/30 flex flex-col gap-2">
                 <a
                   href={`/${activePdf.fileName}`}
                   target="_blank"
@@ -180,15 +238,15 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
                   className="flex items-center justify-center gap-2 rounded-xl bg-primary py-3 text-xs font-semibold text-white shadow-sm hover:bg-black"
                 >
                   <Eye size={14} />
-                  Open in New Tab
+                  Open Full PDF in New Tab
                 </a>
                 <a
                   href={`/${activePdf.fileName}`}
                   download
-                  className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-3 text-xs font-semibold text-foreground hover:border-black"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-border bg-card py-2.5 text-xs font-semibold text-foreground hover:border-black"
                 >
                   <Download size={14} />
-                  Download PDF ({activePdf.fileSize})
+                  Download Full PDF ({activePdf.fileSize})
                 </a>
               </div>
             </div>

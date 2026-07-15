@@ -58,7 +58,7 @@ export default function PTAbout() {
           <div className="order-first lg:order-last">
             <div className="rounded-[18px] overflow-hidden border border-white/70 dark:border-border/20 dark:border-border/20 shadow-[0_18px_50px_var(--border)]">
               <div className="relative aspect-[4/3] w-full">
-                <Image src="/hero_about.jpeg" alt="Paresh Textile showroom" fill className="object-cover" />
+                <Image src="/hero_about.webp" alt="Paresh Textile showroom" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
               </div>
               <div className="p-5 bg-card">
                 <p className="text-sm text-muted-foreground">
@@ -103,12 +103,12 @@ export default function PTAbout() {
                 {
                   name: 'Hasmukh Prajapati',
                   role: 'Sales Agent',
-                  image: '/team-placeholder.png',
+                  image: '/team-placeholder.webp',
                 },
                 {
                   name: 'Narendra Rajgor',
                   role: 'Office Worker',
-                  image: '/team-placeholder.png',
+                  image: '/team-placeholder.webp',
                 },
               ].map((person) => (
                 <div
@@ -116,7 +116,7 @@ export default function PTAbout() {
                   className="overflow-hidden rounded-[18px] border border-border bg-card/90 shadow-[0_12px_30px_var(--border)] transition-transform duration-300 hover:-translate-y-1"
                 >
                   <div className="relative aspect-[4/3] w-full bg-secondary">
-                    <Image src={person.image} alt={person.name} fill className="object-cover" />
+                    <Image src={person.image} alt={person.name} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
                   </div>
                   <div className="p-4 sm:p-5">
                     <div className="font-semibold text-foreground text-base sm:text-lg">{person.name}</div>

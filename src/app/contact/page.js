@@ -17,7 +17,7 @@ export const metadata = {
     siteName: 'PT - Paresh Textile',
     images: [
       {
-        url: 'https://paresh-textile.vercel.app/hero.png',
+        url: 'https://paresh-textile.vercel.app/hero.webp',
         width: 1200,
         height: 630,
         alt: 'Contact PT - Paresh Textile',
@@ -29,7 +29,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Contact Sourcing – PT - Paresh Textile | Wholesale Fabrics',
     description: 'Get in touch with PT - Paresh Textile in Ahmedabad for bulk fabric sourcing, showroom visits, or queries. Enquire via WhatsApp or our contact form.',
-    images: ['https://paresh-textile.vercel.app/hero.png'],
+    images: ['https://paresh-textile.vercel.app/hero.webp'],
   },
 };
 

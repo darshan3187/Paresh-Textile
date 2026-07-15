@@ -50,7 +50,7 @@ export default function PTNavBar() {
             href="/"
             className="absolute left-1/2 -translate-x-1/2 sm:static sm:left-auto sm:translate-x-0 flex items-center gap-3 flex-shrink-0 group z-10"
           >
-              <img src="/PT_1.png" alt="Paresh Textile Logo" className="h-15 w-auto sm:h-18 dark:invert transition-all duration-300" />
+              <img src="/PT_1.webp" alt="Paresh Textile Logo" className="h-15 w-auto sm:h-18 dark:invert transition-all duration-300" />
           </Link>
 
           {/* Right Side: Links & Theme Toggle */}

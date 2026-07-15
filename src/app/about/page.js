@@ -17,7 +17,7 @@ export const metadata = {
     siteName: 'PT - Paresh Textile',
     images: [
       {
-        url: 'https://paresh-textile.vercel.app/hero_about.jpeg',
+        url: 'https://paresh-textile.vercel.app/hero_about.webp',
         width: 1200,
         height: 630,
         alt: 'About PT - Paresh Textile',
@@ -29,7 +29,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Wholesale Fabric Showroom – PT - Paresh Textile | About Us',
     description: 'Learn about PT - Paresh Textile, a trusted wholesale fabric partner in Ahmedabad with 30+ years of sourcing expertise. Contact us today to visit our showroom.',
-    images: ['https://paresh-textile.vercel.app/hero_about.jpeg'],
+    images: ['https://paresh-textile.vercel.app/hero_about.webp'],
   },
 };
 

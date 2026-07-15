@@ -43,10 +43,10 @@ const businessHighlights = [
 ];
 
 const categoryCards = [
-  { name: 'Suiting', desc: 'Corporate, formal, and daily-wear suiting fabrics with clean drape and dependable quality.', img: '/cat-suitings.png' },
-  { name: 'Shirting', desc: 'Smart shirting fabric for uniforms, retail programs, and premium everyday wear.', img: '/cat-shirtings.png' },
-  { name: 'Linen', desc: 'Natural textures with breathable comfort and a refined luxury finish.', img: '/cat-linen.png' },
-  { name: 'Ethnic & Wedding', desc: 'Rich occasion fabrics for sherwani, ceremonial wear, and festive sourcing.', img: '/cat-sherwani.png' },
+  { name: 'Suiting', desc: 'Corporate, formal, and daily-wear suiting fabrics with clean drape and dependable quality.', img: '/cat-suitings.webp' },
+  { name: 'Shirting', desc: 'Smart shirting fabric for uniforms, retail programs, and premium everyday wear.', img: '/cat-shirtings.webp' },
+  { name: 'Linen', desc: 'Natural textures with breathable comfort and a refined luxury finish.', img: '/cat-linen.webp' },
+  { name: 'Ethnic & Wedding', desc: 'Rich occasion fabrics for sherwani, ceremonial wear, and festive sourcing.', img: '/cat-sherwani.webp' },
 ];
 
 const trustPoints = [
@@ -108,10 +108,10 @@ const faqs = [
 ];
 
 const galleryShots = [
-  { src: '/hero.png', alt: 'PT Paresh Textile showroom interior in Ahmedabad' },
-  { src: '/cat-suitings.png', alt: 'Premium suiting fabrics at PT Paresh Textile' },
-  { src: '/cat-shirtings.png', alt: 'Shirting fabric display at PT Paresh Textile' },
-  { src: '/cat-linen.png', alt: 'Luxury linen fabric range at PT Paresh Textile' },
+  { src: '/hero.webp', alt: 'PT Paresh Textile showroom interior in Ahmedabad' },
+  { src: '/cat-suitings.webp', alt: 'Premium suiting fabrics at PT Paresh Textile' },
+  { src: '/cat-shirtings.webp', alt: 'Shirting fabric display at PT Paresh Textile' },
+  { src: '/cat-linen.webp', alt: 'Luxury linen fabric range at PT Paresh Textile' },
 ];
 
 const whatsappLink =
@@ -207,9 +207,10 @@ export default function Home() {
 
               <div className="relative mt-6 lg:hidden aspect-[4/3] overflow-hidden rounded-[26px] border border-white/70 dark:border-border/20 dark:border-border/20 shadow-[0_18px_50px_var(--border)]">
                 <Image
-                  src="/Hero.jpeg"
+                  src="/hero.webp"
                   alt="Premium fabric showroom in Ahmedabad"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                   className="object-cover"
                 />
@@ -244,7 +245,7 @@ export default function Home() {
             {/* Dekstop Hero Section */}
             <aside className="hidden lg:grid gap-6">
               <div className="relative min-h-[240px] sm:min-h-[280px] overflow-hidden rounded-[28px] border border-white/70 dark:border-border/20 dark:border-border/20 shadow-[0_24px_70px_var(--border)]">
-                <Image src="/Hero.jpeg" alt="Premium fabric showroom in Ahmedabad" fill priority className="object-cover" />
+                <Image src="/hero.webp" alt="Premium fabric showroom in Ahmedabad" fill sizes="(max-width: 1200px) 44vw, 500px" priority className="object-cover" />
                 <div className="absolute inset-0" />
                 <div className="absolute left-5 top-5 rounded-full border border-white/35 bg-card/15 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white backdrop-blur-md">
                   Showroom gallery
@@ -360,7 +361,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
               {categoryCards.map((cat) => (
                 <Link key={cat.name} href="/catalog" className="group relative overflow-hidden rounded-[24px] min-h-[220px] sm:min-h-[260px] shadow-[0_14px_40px_var(--border)]">
-                  <Image src={cat.img} alt={cat.alt ?? cat.name} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
+                  <Image src={cat.img} alt={cat.alt ?? cat.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,18,9,0.02)_0%,rgba(26,18,9,0.78)_100%)]" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <span className="font-headings text-2xl font-bold text-white block">{cat.name}</span>

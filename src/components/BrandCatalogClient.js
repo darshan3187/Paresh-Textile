@@ -10,7 +10,12 @@ import {
   BRANDS,
   getProductsForBrand,
 } from '@/data/catalogData';
-import PDFCatalogViewer from '@/components/PDFCatalogViewer';
+import dynamic from 'next/dynamic';
+
+const PDFCatalogViewer = dynamic(() => import('@/components/PDFCatalogViewer'), {
+  ssr: false,
+  loading: () => <div className="h-[450px] bg-secondary animate-pulse rounded-2xl" />
+});
 
 function getProductWhatsAppLink(product, colorVariant) {
   const text = `Hi PT Paresh Textile, I'm interested in:\n\n*${product.name}*\nBrand: ${product.brand}\nColor: ${colorVariant?.colorName || 'Default'}\nCategory: ${product.category}\nPrice: ₹${product.pricePerMeter}/meter\n\nPlease share availability and bulk pricing details.`;
@@ -31,6 +36,7 @@ function ProductCard({ product }) {
             src={activeColor.image}
             alt={`${product.name} — ${activeColor.colorName}`}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
         ) : (
@@ -208,6 +214,7 @@ export default function BrandCatalogClient({ brandSlug }) {
                   allowFullScreen
                   scrolling="no"
                   allow="encrypted-media"
+                  loading="lazy"
                 ></iframe>
               </div>
             </div>
@@ -241,6 +248,7 @@ export default function BrandCatalogClient({ brandSlug }) {
                       alt={`${brandName} logo`}
                       width={120}
                       height={56}
+                      priority
                       className="h-auto w-full object-contain"
                     />
                   </div>
@@ -356,6 +364,7 @@ export default function BrandCatalogClient({ brandSlug }) {
                     alt={`${brandName} logo`}
                     width={120}
                     height={56}
+                    priority
                     className="h-auto w-full object-contain"
                   />
                 </div>
