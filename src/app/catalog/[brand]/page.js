@@ -28,17 +28,17 @@ export async function generateMetadata({ params }) {
     title: titleText,
     description: descriptionText,
     alternates: {
-      canonical: `https://pareshtextile.com/catalog/${resolvedParams.brand}`,
+      canonical: `https://paresh-textile.vercel.app/catalog/${resolvedParams.brand}`,
     },
     openGraph: {
       type: 'website',
       title: titleText,
       description: descriptionText,
-      url: `https://pareshtextile.com/catalog/${resolvedParams.brand}`,
+      url: `https://paresh-textile.vercel.app/catalog/${resolvedParams.brand}`,
       siteName: 'PT - Paresh Textile',
       images: [
         {
-          url: 'https://pareshtextile.com/hero.png',
+          url: 'https://paresh-textile.vercel.app/hero.png',
           width: 1200,
           height: 630,
           alt: `${brandInfo.name} Fabrics - PT - Paresh Textile`,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: titleText,
       description: descriptionText,
-      images: ['https://pareshtextile.com/hero.png'],
+      images: ['https://paresh-textile.vercel.app/hero.png'],
     },
   };
 }

@@ -1,7 +1,7 @@
 import { getAllBrandSlugs } from '@/data/catalogData';
 
 export default function sitemap() {
-  const baseUrl = 'https://pareshtextile.com';
+  const baseUrl = 'https://paresh-textile.vercel.app';
 
   // Static pages
   const staticPages = [

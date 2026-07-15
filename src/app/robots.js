@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://pareshtextile.com/sitemap.xml',
+    sitemap: 'https://paresh-textile.vercel.app/sitemap.xml',
   };
 }
