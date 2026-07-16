@@ -1,6 +1,7 @@
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,6 +34,20 @@ export default function RootLayout({ children }) {
         {children}
         <Analytics />
       </body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-NLD9F4RC4Q"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-NLD9F4RC4Q');
+        `}
+      </Script>
     </html>
   );
 }
+
