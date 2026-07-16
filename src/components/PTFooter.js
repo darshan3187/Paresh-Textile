@@ -61,6 +61,17 @@ export default function PTFooter() {
         </div>
         <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-2">
           <p className="text-[11px] text-white/20">© {new Date().getFullYear()} PT - Paresh Textile. All rights reserved.</p>
+          <p className="text-[11px] text-white/20">
+            Created by{' '}
+            <a
+              href="https://www.instagram.com/z__w__p_official/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors underline underline-offset-2"
+            >
+              ZWP
+            </a>
+          </p>
           <p className="text-[11px] text-white/20">Ahmedabad, Gujarat, India</p>
         </div>
       </div>

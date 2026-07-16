@@ -387,7 +387,7 @@ export default function Home() {
 
             <div className="grid gap-4 lg:grid-cols-2">
               {testimonials.map((item) => (
-                <figure className="rounded-[24px] border border-border bg-card/88 p-5 sm:p-6 shadow-[0_10px_28px_var(--border)]">
+                <figure key={item.quote} className="rounded-[24px] border border-border bg-card/88 p-5 sm:p-6 shadow-[0_10px_28px_var(--border)]">
                   <div className="flex gap-1 text-gold mb-4">
                     {[1, 2, 3, 4, 5].map((star) => <Star key={star} size={14} fill="currentColor" />)}
                   </div>
