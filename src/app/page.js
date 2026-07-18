@@ -9,17 +9,17 @@ export const metadata = {
   title: 'Wholesale Fabrics – PT - Paresh Textile | Ahmedabad Sourcing',
   description: 'Source premium wholesale fabrics at PT - Paresh Textile in Ahmedabad. Explore 5,000+ variants across suiting and shirting. Message us on WhatsApp to enquire!',
   alternates: {
-    canonical: 'https://paresh-textile.vercel.app/',
+    canonical: 'https://www.pareshtextile.shop/',
   },
   openGraph: {
     type: 'website',
     title: 'Wholesale Fabrics – PT - Paresh Textile | Ahmedabad Sourcing',
     description: 'Source premium wholesale fabrics at PT - Paresh Textile in Ahmedabad. Explore 5,000+ variants across suiting and shirting. Message us on WhatsApp to enquire!',
-    url: 'https://paresh-textile.vercel.app/',
+    url: 'https://www.pareshtextile.shop/',
     siteName: 'PT - Paresh Textile',
     images: [
       {
-        url: 'https://paresh-textile.vercel.app/hero.png',
+        url: 'https://www.pareshtextile.shop/hero.png',
         width: 1200,
         height: 630,
         alt: 'PT - Paresh Textile Showroom',
@@ -31,7 +31,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Wholesale Fabrics – PT - Paresh Textile | Ahmedabad Sourcing',
     description: 'Source premium wholesale fabrics at PT - Paresh Textile in Ahmedabad. Explore 5,000+ variants across suiting and shirting. Message us on WhatsApp to enquire!',
-    images: ['https://paresh-textile.vercel.app/hero.png'],
+    images: ['https://www.pareshtextile.shop/hero.png'],
   },
 };
 
@@ -123,7 +123,7 @@ const localBusinessSchema = {
   name: 'PT - Paresh Textile',
   description:
     'Premium wholesale textile sourcing partner in Ahmedabad offering suiting, shirting, linen, ethnic, wedding and corporate fabrics.',
-  url: 'https://paresh-textile.vercel.app',
+  url: 'https://www.pareshtextile.shop',
   telephone: '+91 9327387674',
   email: 'info@pareshtextile.com',
   priceRange: '$$',

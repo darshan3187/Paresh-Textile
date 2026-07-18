@@ -8,17 +8,17 @@ export const metadata = {
   title: 'Wholesale Fabric Catalog – PT - Paresh Textile | Ahmedabad',
   description: 'Explore our wholesale fabric catalog at PT - Paresh Textile in Ahmedabad. Source suiting, shirting, and linen from premium brands. Enquire via WhatsApp!',
   alternates: {
-    canonical: 'https://paresh-textile.vercel.app/catalog',
+    canonical: 'https://www.pareshtextile.shop/catalog',
   },
   openGraph: {
     type: 'website',
     title: 'Wholesale Fabric Catalog – PT - Paresh Textile | Ahmedabad',
     description: 'Explore our wholesale fabric catalog at PT - Paresh Textile in Ahmedabad. Source suiting, shirting, and linen from premium brands. Enquire via WhatsApp!',
-    url: 'https://paresh-textile.vercel.app/catalog',
+    url: 'https://www.pareshtextile.shop/catalog',
     siteName: 'PT - Paresh Textile',
     images: [
       {
-        url: 'https://paresh-textile.vercel.app/hero.webp',
+        url: 'https://www.pareshtextile.shop/hero.webp',
         width: 1200,
         height: 630,
         alt: 'Fabric Catalog - PT - Paresh Textile',
@@ -30,7 +30,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Wholesale Fabric Catalog – PT - Paresh Textile | Ahmedabad',
     description: 'Explore our wholesale fabric catalog at PT - Paresh Textile in Ahmedabad. Source suiting, shirting, and linen from premium brands. Enquire via WhatsApp!',
-    images: ['https://paresh-textile.vercel.app/hero.webp'],
+    images: ['https://www.pareshtextile.shop/hero.webp'],
   },
 };
 

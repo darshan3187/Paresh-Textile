@@ -37,6 +37,32 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'pareshtextile.shop',
+          },
+        ],
+        destination: 'https://www.pareshtextile.shop/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'paresh-textile.vercel.app',
+          },
+        ],
+        destination: 'https://www.pareshtextile.shop/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

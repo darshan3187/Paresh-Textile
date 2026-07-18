@@ -7,17 +7,17 @@ export const metadata = {
   title: 'Contact Sourcing – PT - Paresh Textile | Wholesale Fabrics',
   description: 'Get in touch with PT - Paresh Textile in Ahmedabad for bulk fabric sourcing, showroom visits, or queries. Enquire via WhatsApp or our contact form.',
   alternates: {
-    canonical: 'https://paresh-textile.vercel.app/contact',
+    canonical: 'https://www.pareshtextile.shop/contact',
   },
   openGraph: {
     type: 'website',
     title: 'Contact Sourcing – PT - Paresh Textile | Wholesale Fabrics',
     description: 'Get in touch with PT - Paresh Textile in Ahmedabad for bulk fabric sourcing, showroom visits, or queries. Enquire via WhatsApp or our contact form.',
-    url: 'https://paresh-textile.vercel.app/contact',
+    url: 'https://www.pareshtextile.shop/contact',
     siteName: 'PT - Paresh Textile',
     images: [
       {
-        url: 'https://paresh-textile.vercel.app/hero.webp',
+        url: 'https://www.pareshtextile.shop/hero.webp',
         width: 1200,
         height: 630,
         alt: 'Contact PT - Paresh Textile',
@@ -29,7 +29,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Contact Sourcing – PT - Paresh Textile | Wholesale Fabrics',
     description: 'Get in touch with PT - Paresh Textile in Ahmedabad for bulk fabric sourcing, showroom visits, or queries. Enquire via WhatsApp or our contact form.',
-    images: ['https://paresh-textile.vercel.app/hero.webp'],
+    images: ['https://www.pareshtextile.shop/hero.webp'],
   },
 };
 
