@@ -208,9 +208,9 @@ export default function Home() {
               <div className="relative mt-6 lg:hidden aspect-[4/3] overflow-hidden rounded-[26px] border border-white/70 dark:border-border/20 dark:border-border/20 shadow-[0_18px_50px_var(--border)]">
                 <Image
                   src="/hero.webp"
+                  fetchpriority='high'
                   alt="Premium fabric showroom in Ahmedabad"
                   fill
-                  fetchpriority='high'
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                   className="object-cover"
