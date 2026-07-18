@@ -210,6 +210,7 @@ export default function Home() {
                   src="/hero.webp"
                   alt="Premium fabric showroom in Ahmedabad"
                   fill
+                  fetchpriority='high'
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                   className="object-cover"
