@@ -30,15 +30,19 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable} ${cormorant.variable} antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <Analytics />
       </body>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-NLD9F4RC4Q"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
