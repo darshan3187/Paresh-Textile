@@ -18,7 +18,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata = {
   title: "PT - Paresh Textile | Wholesale Fabric Sourcing Ahmedabad",
-  description: "Premium B2B wholesale textile showroom in Ahmedabad, Gujarat. Source high-quality suiting, linen, and ceremony wear fabrics directly from trusted mill partners.",
+  description: "Premium B2B wholesale textile showroom in Ahmedabad, Gujarat. Source high-quality suiting, shirting, linen, and ceremony wear fabrics directly from trusted mill partners.",
   verification: {
     google: "IFEo_oGRlJ6YFwXZi7UfcC2USeVgLbPlNWKjuDhJaVk",
   },
@@ -30,19 +30,15 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable} ${cormorant.variable} antialiased`}
     >
-      <head>
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <Analytics />
       </body>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-NLD9F4RC4Q"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="lazyOnload">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

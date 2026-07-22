@@ -208,7 +208,7 @@ export default function Home() {
               <div className="relative mt-6 lg:hidden aspect-[4/3] overflow-hidden rounded-[26px] border border-white/70 dark:border-border/20 dark:border-border/20 shadow-[0_18px_50px_var(--border)]">
                 <Image
                   src="/hero.webp"
-                  fetchPriority="high"
+                  fetchpriority='high'
                   alt="Premium fabric showroom in Ahmedabad"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -246,7 +246,7 @@ export default function Home() {
             {/* Dekstop Hero Section */}
             <aside className="hidden lg:grid gap-6">
               <div className="relative min-h-[240px] sm:min-h-[280px] overflow-hidden rounded-[28px] border border-white/70 dark:border-border/20 dark:border-border/20 shadow-[0_24px_70px_var(--border)]">
-                <Image src="/hero.webp" alt="Premium fabric showroom in Ahmedabad" fill sizes="(max-width: 1200px) 44vw, 500px" className="object-cover" />
+                <Image src="/hero.webp" alt="Premium fabric showroom in Ahmedabad" fill sizes="(max-width: 1200px) 44vw, 500px" priority className="object-cover" />
                 <div className="absolute inset-0" />
                 <div className="absolute left-5 top-5 rounded-full border border-white/35 bg-card/15 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-white backdrop-blur-md">
                   Showroom gallery

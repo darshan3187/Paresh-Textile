@@ -46,7 +46,6 @@ const BRAND_PDF_CATALOGS = {
 export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
   const [activeTab, setActiveTab] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const [currentPreviewPage, setCurrentPreviewPage] = useState(1);
 
   const catalogs = BRAND_PDF_CATALOGS[brandSlug.toLowerCase()] || [];
@@ -62,11 +61,10 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
   }, [activeTab]);
 
   useEffect(() => {
-    setIsMounted(true);
-    setIsMobile(window.innerWidth < 768);
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -172,14 +170,7 @@ export default function PDFCatalogViewer({ brandSlug = 'absoluto' }) {
 
         {/* PDF viewer panel */}
         <div className="relative min-h-[450px] lg:min-h-[580px] rounded-2xl border border-border overflow-hidden bg-secondary shadow-sm flex flex-col">
-          {!isMounted ? (
-            <div className="flex-1 flex flex-col items-center justify-center p-6 bg-[#FDFBF7] text-muted-foreground text-xs font-semibold uppercase tracking-wider">
-              <span className="flex items-center gap-1.5 font-semibold text-gold mb-2">
-                <span className="h-2 w-2 rounded-full bg-gold animate-pulse"></span>
-                Initializing Viewer...
-              </span>
-            </div>
-          ) : isMobile ? (
+          {isMobile ? (
             <div className="flex-1 flex flex-col bg-[#FDFBF7]">
               {/* Header inside viewer */}
               <div className="bg-secondary/40 border-b border-border/40 px-4 py-2 flex items-center justify-between text-xs text-muted-foreground font-medium">

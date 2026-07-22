@@ -11,7 +11,6 @@ import {
   getProductsForBrand,
 } from '@/data/catalogData';
 import dynamic from 'next/dynamic';
-import InstagramReelCard from './InstagramReelCard';
 
 const PDFCatalogViewer = dynamic(() => import('@/components/PDFCatalogViewer'), {
   ssr: false,
@@ -208,7 +207,16 @@ export default function BrandCatalogClient({ brandSlug }) {
               key={reel.id}
               className="group relative overflow-hidden rounded-[24px] border border-border bg-card p-2.5 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
-              <InstagramReelCard reel={reel} />
+              <div className="relative aspect-[9/16] w-full rounded-2xl overflow-hidden bg-black/5 shadow-inner">
+                <iframe
+                  src={`https://www.instagram.com/reel/${reel.id}/embed/`}
+                  className="w-full h-full border-0 absolute inset-0"
+                  allowFullScreen
+                  scrolling="no"
+                  allow="encrypted-media"
+                  loading="lazy"
+                ></iframe>
+              </div>
             </div>
           ))}
         </div>
