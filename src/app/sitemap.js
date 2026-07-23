@@ -8,7 +8,7 @@ export default function sitemap() {
     {
       url: `${baseUrl}/`,
       lastModified: new Date(),
-      changeFrequency: 'daily',
+      changeFrequency: 'monthly',
       priority: 1.0,
     },
     {
@@ -20,7 +20,7 @@ export default function sitemap() {
     {
       url: `${baseUrl}/catalog`,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
@@ -36,7 +36,7 @@ export default function sitemap() {
   const brandPages = brandSlugs.map((slug) => ({
     url: `${baseUrl}/catalog/${slug}`,
     lastModified: new Date(),
-    changeFrequency: 'weekly',
+    changeFrequency: 'monthly',
     priority: 0.8,
   }));
 
