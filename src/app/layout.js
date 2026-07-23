@@ -34,6 +34,9 @@ export const metadata = {
   ],
   verification: {
     google: "IFEo_oGRlJ6YFwXZi7UfcC2USeVgLbPlNWKjuDhJaVk",
+    other: {
+      "msvalidate.01": ["3AC6449835AF534C9C84047CED94C2CE"],
+    },
   },
 };
 
