@@ -6,6 +6,14 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Contact Sourcing – PT - Paresh Textile | Wholesale Fabrics',
   description: 'Get in touch with PT - Paresh Textile in Ahmedabad for bulk fabric sourcing, showroom visits, or queries. Enquire via WhatsApp or our contact form.',
+  keywords: [
+    'contact Paresh Textile',
+    'fabric showroom location ahmedabad',
+    'Paresh Textile address ahmedabad',
+    'Paresh Textile contact number',
+    'wholesale cloth market ahmedabad contact',
+    'bulk fabric inquiry ahmedabad'
+  ],
   alternates: {
     canonical: 'https://www.pareshtextile.shop/contact',
   },

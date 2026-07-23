@@ -27,6 +27,14 @@ export async function generateMetadata({ params }) {
   return {
     title: titleText,
     description: descriptionText,
+    keywords: [
+      `${brandInfo.name} wholesale fabric`,
+      `${brandInfo.name} suiting shirting`,
+      `${brandInfo.name} fabric supplier ahmedabad`,
+      `buy ${brandInfo.name} fabric in bulk`,
+      `${brandInfo.name} cloth distributor gujarat`,
+      `${brandInfo.name} fabrics Paresh Textile`
+    ],
     alternates: {
       canonical: `https://www.pareshtextile.shop/catalog/${resolvedParams.brand}`,
     },

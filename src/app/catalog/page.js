@@ -7,6 +7,15 @@ import { MessageCircle } from 'lucide-react';
 export const metadata = {
   title: 'Wholesale Fabric Catalog – PT - Paresh Textile | Ahmedabad',
   description: 'Explore our wholesale fabric catalog at PT - Paresh Textile in Ahmedabad. Source suiting, shirting, and linen from premium brands. Enquire via WhatsApp!',
+  keywords: [
+    'wholesale fabric catalog',
+    'suiting fabric catalog ahmedabad',
+    'shirting fabric catalog',
+    'linen fabric wholesale catalog',
+    'branded fabric catalog ahmedabad',
+    'textile catalog Paresh Textile',
+    'bulk fabric pricing ahmedabad'
+  ],
   alternates: {
     canonical: 'https://www.pareshtextile.shop/catalog',
   },

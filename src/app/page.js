@@ -8,6 +8,18 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Wholesale Fabrics – PT - Paresh Textile | Ahmedabad Sourcing',
   description: 'Source premium wholesale fabrics at PT - Paresh Textile in Ahmedabad. Explore 5,000+ variants across suiting and shirting. Message us on WhatsApp to enquire!',
+  keywords: [
+    'wholesale fabric ahmedabad',
+    'Paresh Textile',
+    'suiting and shirting wholesale',
+    'B2B textile market ahmedabad',
+    'bulk fabric supplier gujarat',
+    'branded suiting fabric wholesale',
+    'cotton shirting wholesale ahmedabad',
+    'poly viscose suiting wholesale',
+    'wedding fabric wholesale ahmedabad',
+    'textile showroom near me'
+  ],
   alternates: {
     canonical: 'https://www.pareshtextile.shop/',
   },

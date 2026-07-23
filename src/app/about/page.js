@@ -6,6 +6,14 @@ import PTFooter from '@/components/PTFooter';
 export const metadata = {
   title: 'Wholesale Fabric Showroom – PT - Paresh Textile | About Us',
   description: 'Learn about PT - Paresh Textile, a trusted wholesale fabric partner in Ahmedabad with 30+ years of sourcing expertise. Contact us today to visit our showroom.',
+  keywords: [
+    'about Paresh Textile',
+    'textile wholesaler ahmedabad',
+    '30 years fabric sourcing ahmedabad',
+    'trusted fabric distributor gujarat',
+    'wholesale textile partner ahmedabad',
+    'Paresh Textile company profile'
+  ],
   alternates: {
     canonical: 'https://www.pareshtextile.shop/about',
   },

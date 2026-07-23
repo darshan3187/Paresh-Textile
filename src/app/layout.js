@@ -19,6 +19,19 @@ const cormorant = Cormorant_Garamond({
 export const metadata = {
   title: "PT - Paresh Textile | Wholesale Fabric Sourcing Ahmedabad",
   description: "Premium B2B wholesale textile showroom in Ahmedabad, Gujarat. Source high-quality suiting, shirting, linen, and ceremony wear fabrics directly from trusted mill partners.",
+  keywords: [
+    "Paresh Textile",
+    "Paresh Textile Ahmedabad",
+    "wholesale fabric supplier ahmedabad",
+    "textile showroom ahmedabad",
+    "wholesale suiting and shirting fabric",
+    "B2B fabric sourcing gujarat",
+    "bulk fabric wholesale india",
+    "linen fabrics wholesale ahmedabad",
+    "ceremony wear fabric supplier",
+    "textile wholesaler gujarat",
+    "cloth market ahmedabad"
+  ],
   verification: {
     google: "IFEo_oGRlJ6YFwXZi7UfcC2USeVgLbPlNWKjuDhJaVk",
   },
